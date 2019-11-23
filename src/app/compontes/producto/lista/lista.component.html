@@ -1,0 +1,20 @@
+<div class="row">
+    <div class="col-md-12">
+        <h4>Lista Productos</h4>
+        <table class="table table-bordered">
+            <thead>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Descripcion</th>
+                <th>Categoria</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let producto of productos; let i = index">
+                    <td>{{producto.nombre}}</td>
+                    <td>{{producto.descripcion}}</td>
+                    <td>{{producto.categoria}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

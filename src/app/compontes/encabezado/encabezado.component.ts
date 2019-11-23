@@ -9,6 +9,7 @@ export class EncabezadoComponent implements OnInit {
 
   constructor() { }
 
+
   ngOnInit() {
   }
 
