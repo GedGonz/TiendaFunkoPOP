@@ -9,13 +9,16 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class ListaComponent implements OnInit {
 
-
+  
   productos: producto[] = [];
+  productosSeleccionados: producto[] = [];
 
   constructor(private servicio: ServicioproductoService) { 
 
     this.servicio.obtenerProductos().subscribe((resp: producto[]) => {
-      this.productos = resp;
+      this.productosSeleccionados =  resp.slice(0, 4);
+      this.productos = this.productosSeleccionados;
+      
       console.log('Productos'+ resp);
       }, (err: HttpErrorResponse) => {
         console.log(err);
