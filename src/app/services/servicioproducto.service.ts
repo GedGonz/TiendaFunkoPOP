@@ -17,4 +17,10 @@ export class ServicioproductoService {
     return this.http.get<producto[]>(url);
   }
 
+  nuevoProducto(_producto: producto){
+    console.log(_producto);
+    const url = `https://localhost:5001/api/Producto`;
+    return this.http.post(url, _producto);
+  }
+
 }

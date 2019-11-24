@@ -8,6 +8,7 @@ import { ServicioproductoService } from './services/servicioproducto.service';
 import { HttpClientModule } from '@angular/common/http';
 import { LandingComponent } from './compontes/landing/landing.component';
 import { FormularioComponent } from './compontes/producto/formulario/formulario.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { FormularioComponent } from './compontes/producto/formulario/formulario.
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [ServicioproductoService],
   bootstrap: [AppComponent]
