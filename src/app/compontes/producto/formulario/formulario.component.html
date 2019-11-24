@@ -8,6 +8,7 @@
                               Nombre
                             </label>
                     <div class="col-md-12">
+                        <input type="hidden" name="productoId" id="productoId" [(ngModel)]="model.productoId">
                         <input type="text" name="nombre" id="nombre" class="form-control" [(ngModel)]="model.nombre" placeholder="Digite un nombre">
                     </div>
                 </div>
@@ -16,7 +17,7 @@
                                   Descripcion
                                 </label>
                     <div class="col-md-12">
-                        <input type="text" name="posicion" id="posicion" class="form-control" [(ngModel)]="model.descripcion" placeholder="Digite una descripcion">
+                        <input type="text" name="descripcion" id="descripcion" class="form-control" [(ngModel)]="model.descripcion" placeholder="Digite una descripcion">
                     </div>
                 </div>
                 <div class="form-group">
@@ -24,7 +25,7 @@
                                   Precio
                                 </label>
                     <div class="col-md-12">
-                        <input type="text" name="posicion" id="posicion" class="form-control" [(ngModel)]="model.precio" placeholder="Digite una precio">
+                        <input type="text" name="precio" id="precio" class="form-control" [(ngModel)]="model.precio" placeholder="Digite una precio">
                     </div>
                 </div>
                 <div class="form-group">
@@ -32,7 +33,7 @@
                                   Categoria
                                 </label>
                     <div class="col-md-12">
-                        <input type="text" name="meial" id="email" class="form-control" [(ngModel)]="model.categoria" placeholder="Digite una categoria">
+                        <input type="text" name="categoria" id="categoria" class="form-control" [(ngModel)]="model.categoria" placeholder="Digite una categoria">
                     </div>
                 </div>
                 <div class="form-group">
@@ -40,7 +41,7 @@
                                   Imagen
                                 </label>
                     <div class="col-md-12">
-                        <input type="text" name="meial" id="email" class="form-control" [(ngModel)]="model.imagen" placeholder="Digite la imagen">
+                        <input type="text" name="imagen" id="imagen" class="form-control" [(ngModel)]="model.imagen" placeholder="Digite la imagen">
                     </div>
                 </div>
                 <div class="form-group">
@@ -64,13 +65,17 @@
                     <th>Categoria</th>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let producto of productos">
+                    <tr *ngFor="let producto of productos; let i = index">
                         <td>{{producto.productoId}}</td>
                         <td>{{producto.nombre}}</td>
                         <td>{{producto.descripcion}}</td>
                         <td>{{producto.precio}}</td>
                         <td>{{producto.categoria}}</td>
+                        <td class="text-center">
+                            <a class="btn btn-primary rounded-circle shadow" (click)="editarProducto(producto)"> Editat</a>
 
+                            <a class="btn btn-danger rounded-circle ml-5 shadow" (click)="eliminarProducto(producto)"> Borrar</a>
+                        </td>
                     </tr>
                 </tbody>
             </table>

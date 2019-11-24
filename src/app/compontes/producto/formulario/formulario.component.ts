@@ -12,13 +12,12 @@ export class FormularioComponent implements OnInit {
 
   model: producto = new producto();
   productos: producto[] = [];
-  productosSeleccionados: producto[] = [];
 
   constructor(private servicio: ServicioproductoService) { 
 
     this.servicio.obtenerProductos().subscribe((resp: producto[]) => {
-      this.productosSeleccionados =  resp.slice(0, 4);
-      this.productos = this.productosSeleccionados;
+
+      this.productos=resp;
       
       console.log('Productos'+ resp);
       }, (err: HttpErrorResponse) => {
@@ -26,18 +25,41 @@ export class FormularioComponent implements OnInit {
       });
   }
 
-
-
   nuevoProducto(){
 
     if (this.model!=null) {
       console.log(this.model);
-      this.servicio.nuevoProducto(this.model).subscribe((res)=>{
-        console.log(res);
-      });
+      if(this.model.productoId==0)
+      {
+
+        this.servicio.nuevoProducto(this.model).subscribe((res)=>{
+          console.log(res);
+        });
+      }
+      else if(this.model.productoId>0)
+      {
+        this.servicio.actualizarProducto(this.model).subscribe((res)=>{
+          console.log(res);
+        });
+      }
     }
-   
   }
+
+  eliminarProducto(_producto: producto): void {
+    this.servicio.eliminarProducto(_producto).subscribe((res)=>{
+      console.log(res);
+    });
+    console.log(_producto);
+  }
+
+  editarProducto(_producto: producto): void {
+    this.model = _producto;
+
+
+    
+
+  }
+
 
   ngOnInit() {
   }

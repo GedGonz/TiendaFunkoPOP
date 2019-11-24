@@ -23,4 +23,15 @@ export class ServicioproductoService {
     return this.http.post(url, _producto);
   }
 
+  actualizarProducto(_producto: producto){
+    console.log(_producto);
+    const url = `https://localhost:5001/api/Producto/${_producto.productoId}`;
+    return this.http.put(url, _producto);
+  }
+
+  eliminarProducto(_producto: producto){
+    console.log(_producto);
+    const url = `https://localhost:5001/api/Producto/${_producto.productoId}`;
+    return this.http.delete(url);
+  }
 }
