@@ -2,7 +2,7 @@
     <div class="col-md-3 mt-3" *ngFor="let producto of productos">
 
         <div class="card shadow">
-            <img src="{{producto.imagen}}" class="card-img-top" alt="...">
+            <div class="text-center"><img src="{{producto.imagen}}" class="card-img-top" alt="..." style="width: 200px!important"></div>
             <div class="card-body">
                 <h5 class="card-title">{{producto.nombre}}</h5>
                 <p class="card-text text-muted">{{producto.descripcion}}</p>

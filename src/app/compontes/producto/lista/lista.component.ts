@@ -11,13 +11,13 @@ export class ListaComponent implements OnInit {
 
   
   productos: producto[] = [];
-  productosSeleccionados: producto[] = [];
+
 
   constructor(private servicio: ServicioproductoService) { 
 
     this.servicio.obtenerProductos().subscribe((resp: producto[]) => {
-      this.productosSeleccionados =  resp.slice(0, 4);
-      this.productos = this.productosSeleccionados;
+
+      this.productos = resp;
       
       console.log('Productos'+ resp);
       }, (err: HttpErrorResponse) => {
