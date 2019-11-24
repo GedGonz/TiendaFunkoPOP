@@ -11,6 +11,8 @@ import { FormularioComponent } from './compontes/producto/formulario/formulario.
 import { FormsModule } from '@angular/forms';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import {filtroproducto} from '../app/compontes/producto/lista/filtroproducto.pipes';
+import { BuscarComponent } from './compontes/producto/buscar/buscar.component';
+import { ProductoComponent } from './compontes/producto/producto.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,6 +21,8 @@ import {filtroproducto} from '../app/compontes/producto/lista/filtroproducto.pip
     LandingComponent,
     FormularioComponent,
     filtroproducto,
+    BuscarComponent,
+    ProductoComponent,
   ],
   imports: [
     BrowserModule,

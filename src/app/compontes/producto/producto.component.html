@@ -1,0 +1,11 @@
+<div class="row ml-5 mr-5 mt-5">
+    <div class="col-md-8 offset-2">
+        <app-buscar (productos)="productorecibido = $event" (buscarproducto)="buscarproductorecibido = $event"></app-buscar>
+    </div>
+</div>
+
+<div class="row ml-1 mr-1">
+    <div class="col-md-12">
+        <app-lista *ngIf="productorecibido" [productos]="productorecibido" [tipo]=false [filtrarproducto]="buscarproductorecibido"></app-lista>
+    </div>
+</div>

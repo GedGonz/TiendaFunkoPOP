@@ -2,3 +2,18 @@
     transition: box-shadow .25s !important;
     box-shadow: 0 8px 17px 0 rgba(0, 0, 0, .2), 0 6px 20px 0 rgba(0, 0, 0, .19) !important;
 }
+
+.carousel-inner {
+    background-color: #191919 !important;
+    position: relative !important;
+    margin-top: 3.7em !important;
+}
+
+.Bannerimagen {
+    height: 20em;
+    min-height: 100%;
+    width: 100%;
+    max-height: 600px;
+    min-height: 100%;
+    opacity: 0.9;
+}
