@@ -1,44 +1,44 @@
 <div class="row mt-5">
-    <div class="col-md-6 offset-3">
+    <div class="col-md-5">
         <div class="card shadow p-4">
             <h4 class="text-center mb-5">Nuevo Producto</h4>
             <form class="form-horizontal">
                 <div class="form-group">
                     <label for="nombre" class="control-label col-md-12">
-                          Nombre
-                        </label>
+                              Nombre
+                            </label>
                     <div class="col-md-12">
                         <input type="text" name="nombre" id="nombre" class="form-control" [(ngModel)]="model.nombre" placeholder="Digite un nombre">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="posicion" class="control-label col-md-2">
-                              Descripcion
-                            </label>
+                    <label for="posicion" class="control-label col-md-4">
+                                  Descripcion
+                                </label>
                     <div class="col-md-12">
                         <input type="text" name="posicion" id="posicion" class="form-control" [(ngModel)]="model.descripcion" placeholder="Digite una descripcion">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="posicion" class="control-label col-md-2">
-                              Precio
-                            </label>
+                    <label for="posicion" class="control-label col-md-4">
+                                  Precio
+                                </label>
                     <div class="col-md-12">
                         <input type="text" name="posicion" id="posicion" class="form-control" [(ngModel)]="model.precio" placeholder="Digite una precio">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="email" class="control-label col-md-12">
-                              Categoria
-                            </label>
+                                  Categoria
+                                </label>
                     <div class="col-md-12">
                         <input type="text" name="meial" id="email" class="form-control" [(ngModel)]="model.categoria" placeholder="Digite una categoria">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="email" class="control-label col-md-12">
-                              Imagen
-                            </label>
+                                  Imagen
+                                </label>
                     <div class="col-md-12">
                         <input type="text" name="meial" id="email" class="form-control" [(ngModel)]="model.imagen" placeholder="Digite la imagen">
                     </div>
@@ -53,4 +53,28 @@
         </div>
     </div>
 
+    <div class=col-md-7>
+        <div class="card shadow p-4">
+            <table class="table table-hover">
+                <thead>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    <th>Descripcion</th>
+                    <th>Precio</th>
+                    <th>Categoria</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let producto of productos">
+                        <td>{{producto.productoId}}</td>
+                        <td>{{producto.nombre}}</td>
+                        <td>{{producto.descripcion}}</td>
+                        <td>{{producto.precio}}</td>
+                        <td>{{producto.categoria}}</td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
 </div>
