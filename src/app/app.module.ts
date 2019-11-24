@@ -10,6 +10,7 @@ import { LandingComponent } from './compontes/landing/landing.component';
 import { FormularioComponent } from './compontes/producto/formulario/formulario.component';
 import { FormsModule } from '@angular/forms';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import {filtroproducto} from '../app/compontes/producto/lista/filtroproducto.pipes';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +18,7 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
     ListaComponent,
     LandingComponent,
     FormularioComponent,
-
+    filtroproducto,
   ],
   imports: [
     BrowserModule,

@@ -1,11 +1,29 @@
-<div class="row">
-    <div class="col-md-3 mt-3" *ngFor="let producto of productos">
+<div class="row mt-5">
+    <div class="col-md-12">
+        <div class="text-center">
+            <h4>¡Busca todos los personajes!</h4>
+        </div>
+    </div>
+</div>
+<div class="row mt-2">
+
+    <div class="col-md-11">
+        <input type="text" id="textofiltro" [(ngModel)]="buscarproducto" class="form-control" autocomplete="off" placeholder="buscar">
+    </div>
+    <div class="col-md-1">
+        <fa name="search"></fa>
+    </div>
+</div>
+
+<div class="row mt-5">
+    <div class="col-md-3 mt-3" *ngFor="let producto of productos | filtroproducto : buscarproducto">
 
         <div class="card shadow">
             <div class="text-center"><img src="{{producto.imagen}}" class="card-img-top" alt="..." style="width: 200px!important"></div>
             <div class="card-body">
                 <h5 class="card-title">{{producto.nombre}}</h5>
                 <p class="card-text text-muted">{{producto.descripcion}}</p>
+                <p class="card-text">C$ {{producto.precio}}</p>
             </div>
         </div>
     </div>
