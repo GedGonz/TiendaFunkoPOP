@@ -68,7 +68,6 @@
                     <th>Nombre</th>
                     <th>Descripcion</th>
                     <th>Precio</th>
-                    <th>Categoria</th>
                 </thead>
                 <tbody>
                     <tr *ngFor="let producto of productos; let i = index">
@@ -76,15 +75,15 @@
                         <td>{{producto.nombre}}</td>
                         <td>{{producto.descripcion}}</td>
                         <td>{{producto.precio}}</td>
-                        <td>{{producto.categoria}}</td>
                         <td class="text-center">
-                            <a class="btn btn-primary rounded-circle shadow" (click)="editarProducto(producto)">
-                                <fa name="edit" style="color: white;"></fa>
-                            </a>
-
-                            <a class="btn btn-danger rounded-circle  shadow" (click)="eliminarProducto(producto)">
-                                <fa name="trash" style="color: white;"></fa>
-                            </a>
+                            <div class="btn-group" role="group" aria-label="Basic example">
+                                <a class="btn btn-primary btn-sm rounded-circle shadow" (click)="editarProducto(producto)">
+                                    <fa name="edit" style="color: white;"></fa>
+                                </a>
+                                <a class="btn btn-danger btn-sm rounded-circle shadow" (click)="eliminarProducto(producto)">
+                                    <fa name="trash" style="color: white;"></fa>
+                                </a>
+                            </div>
                         </td>
                     </tr>
                 </tbody>
