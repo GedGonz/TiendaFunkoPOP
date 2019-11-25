@@ -3,6 +3,7 @@ import { ServicioproductoService } from 'src/app/services/servicioproducto.servi
 import { producto } from 'src/app/model/producto';
 import { HttpErrorResponse } from '@angular/common/http';
 
+
 @Component({
   selector: 'app-buscar',
   templateUrl: './buscar.component.html',
@@ -26,8 +27,8 @@ export class BuscarComponent implements OnInit {
 
     this.servicio.obtenerProductos().subscribe((resp: producto[]) => {
 
-        this.productos.emit(resp);
-
+        this.todosProductos = resp;
+        this.productos.emit(this.todosProductos);
 
       }, (err: HttpErrorResponse) => {
         console.log(err);
@@ -35,8 +36,16 @@ export class BuscarComponent implements OnInit {
 
   }
 
-  buscarProducto(valor){
-    this.buscarproducto.emit(valor.target.value);
+  buscarProducto(valor) {
+
+    if (valor.target.value) {
+
+      this.buscarproducto.emit(valor.target.value);
+    } else {
+
+      this.buscarproducto.emit('');
+    }
+
   }
 
   ngOnInit() {

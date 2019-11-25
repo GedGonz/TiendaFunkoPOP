@@ -1,0 +1,33 @@
+<div class="row mt-5 titulodetalle">
+    <div class="col-md-12 mt-3">
+        <div class="card shadow">
+            <div class="card-body">
+                <h3 class="text-center"> Datalle <span style="color: #26ade0;"> Funko Pop</span> </h3>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="text-center">
+                            <img src="{{productoSeleccionado.imagen}}" alt="..." style="width: 400px!important" />
+
+                        </div>
+                    </div>
+                    <div class="col-md-6 mt-5">
+                        <br>
+                        <p class="card-text text-muted">Codigo: {{ productoSeleccionado.productoId }}</p>
+                        <p class="card-text text-muted">Nombre: {{ productoSeleccionado.nombre }}</p>
+                        <p class="card-text text-muted">Descripción: {{ productoSeleccionado.descripcion }}</p>
+                        <p class="card-text text-muted">Categoría: {{ productoSeleccionado.categoria }}</p>
+                        <p class="card-text text-muted"> Precio: C$ {{ productoSeleccionado.precio }}</p>
+                        <a [routerLink]="['/']" class="btn btn-outline-primary">
+                            <fa name="arrow-left"></fa>
+                        </a>
+                        <button class="btn btn-outline-primary">
+                            <fa name="shopping-bag"></fa>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>

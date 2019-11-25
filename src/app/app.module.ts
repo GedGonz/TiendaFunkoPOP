@@ -14,6 +14,7 @@ import {filtroproducto} from '../app/compontes/producto/lista/filtroproducto.pip
 import { BuscarComponent } from './compontes/producto/buscar/buscar.component';
 import { ProductoComponent } from './compontes/producto/producto.component';
 import { PieComponent } from './compontes/pie/pie.component';
+import { DetalleComponent } from './compontes/producto/detalle/detalle.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +26,7 @@ import { PieComponent } from './compontes/pie/pie.component';
     BuscarComponent,
     ProductoComponent,
     PieComponent,
+    DetalleComponent,
   ],
   imports: [
     BrowserModule,

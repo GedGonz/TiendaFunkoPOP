@@ -8,7 +8,7 @@
 <div class="row mt-2">
 
     <div class="col-md-11">
-        <input type="text" id="textofiltro" (keypress)="buscarProducto($event)" class="form-control" autocomplete="off" placeholder="buscar">
+        <input type="text" id="textofiltro" (input)="buscarProducto($event)" class="form-control" autocomplete="off" placeholder="buscar">
     </div>
     <div class="col-md-1">
         <fa name="search"></fa>

@@ -6,7 +6,16 @@
             <div class="card-body">
                 <h5 class="card-title">{{producto.nombre}}</h5>
                 <p class="card-text text-muted">{{producto.descripcion}}</p>
-                <p class="card-text">C$ {{producto.precio}}</p>
+                <p class="card-text">C$ {{producto.precio}}
+                    <fa name="star" style="color:#007bff"></fa>
+                </p>
+
+                <span class="text-right">
+                        <a routerLink="/producto/{{producto.productoId}}" class="btn btn-outline-primary">  <fa name="eye"></fa> </a>
+                        <button class="btn btn-outline-primary">
+                                <fa name="shopping-bag"></fa>
+                            </button>
+                    </span>
             </div>
         </div>
     </div>
