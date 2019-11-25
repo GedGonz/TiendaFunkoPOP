@@ -13,6 +13,7 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import {filtroproducto} from '../app/compontes/producto/lista/filtroproducto.pipes';
 import { BuscarComponent } from './compontes/producto/buscar/buscar.component';
 import { ProductoComponent } from './compontes/producto/producto.component';
+import { PieComponent } from './compontes/pie/pie.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,6 +24,7 @@ import { ProductoComponent } from './compontes/producto/producto.component';
     filtroproducto,
     BuscarComponent,
     ProductoComponent,
+    PieComponent,
   ],
   imports: [
     BrowserModule,

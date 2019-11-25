@@ -31,17 +31,21 @@ export class FormularioComponent implements OnInit {
     if (this.model != null) {
 
       console.log(this.model);
-      if(this.model.productoId === 0) {
-
+      console.log("valor Producto Id "+this.model);
+      if(!this.model.productoId) {
+        console.log("Nuevo");
         this.servicio.nuevoProducto(this.model).subscribe((res) => {
           console.log(res);
         });
       } else if(this.model.productoId > 0)
       {
+        console.log("Editado");
         this.servicio.actualizarProducto(this.model).subscribe((res) => {
           console.log(res);
+
         });
       }
+      this.model = null;
     }
   }
 
