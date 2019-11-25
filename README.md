@@ -1,27 +1,23 @@
 # FrontEndAngular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.0.
+Estas es una pequeña aplicacion(Tienda FunkoPop) que se conecta a una api para consumir los datos de una tabal (Producto), en esta se crea el CRUD y tiene filtros de busquedas con una Landing Page
 
-## Development server
+Este proyecto fue generado con Angular CLI versión 8.2.0.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Para poder ejecutar este proyecto es necesario tener:
 
-## Code scaffolding
++ nmp versión -+6.9 <br>
++ Editor <br>
++ CLI versión -+8.2.0.<br>
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Clone y baje el proyecto y ejecute:
 
-## Build
+## Servidor de desarrollo
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Ejecutar `ng serve` para un servidor de desarrollo. Navegue a `http://localhost:4200/`. La aplicación se volverá a cargar automáticamente si cambia alguno de los archivos de origen.
 
-## Running unit tests
+## Construir
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Ejecute `ng build` para construir el proyecto. Los artefactos de compilación se almacenarán en el directorio `dist/`. Use el indicador `--prod` para una compilación de producción.
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Este proyecto trabaja en conjunto con el proyecto Backend (API) en Net Core 3.0 este se encuentra en: https://github.com/GedGonz/BackendProducto
