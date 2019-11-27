@@ -8,35 +8,38 @@ import { Observable } from 'rxjs';
 })
 export class ServicioproductoService {
 
+  urlNetCore:string = 'https://localhost:5001/api/Producto';
+  urlNodeJS: string = 'http://localhost:3000/api/Producto';
   constructor(private http: HttpClient) {
   }
 
 
   obtenerProductos(): Observable<producto[]> {
-    const url = `https://localhost:5001/api/Producto`;
+    const url = this.urlNetCore;
     return this.http.get<producto[]>(url);
   }
 
-  obtenerProducto(productoId: number): Observable<producto> {
-    const url = `https://localhost:5001/api/Producto/${productoId}`;
+  obtenerProducto(_id: number): Observable<producto> {
+    const url = `${this.urlNetCore}/${_id}`;
+    console.log(url);
     return this.http.get<producto>(url);
   }
 
   nuevoProducto(_producto: producto){
     console.log(_producto);
-    const url = `https://localhost:5001/api/Producto`;
+    const url = this.urlNetCore;
     return this.http.post(url, _producto);
   }
 
   actualizarProducto(_producto: producto){
     console.log(_producto);
-    const url = `https://localhost:5001/api/Producto/${_producto.productoId}`;
+    const url = `${this.urlNetCore}/${_producto._id}`;
     return this.http.put(url, _producto);
   }
 
   eliminarProducto(_producto: producto){
     console.log(_producto);
-    const url = `https://localhost:5001/api/Producto/${_producto.productoId}`;
+    const url = `${this.urlNetCore}/${_producto._id}`;
     return this.http.delete(url);
   }
 }

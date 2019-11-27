@@ -8,7 +8,7 @@
                               Nombre
                             </label>
                     <div class="col-md-12">
-                        <input type="hidden" name="productoId" id="productoId" [(ngModel)]="model.productoId">
+                        <input type="hidden" name="productoId" id="productoId" [(ngModel)]="model._id">
                         <input type="text" name="nombre" id="nombre" class="form-control" [(ngModel)]="model.nombre" placeholder="Digite un nombre">
                     </div>
                 </div>
@@ -72,7 +72,7 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let producto of productos; let i = index">
-                        <td>{{producto.productoId}}</td>
+                        <td>{{producto._id}}</td>
                         <td>{{producto.nombre}}</td>
                         <td>{{producto.descripcion}}</td>
                         <td>{{producto.precio}}</td>

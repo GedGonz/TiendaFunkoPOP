@@ -32,12 +32,12 @@ export class FormularioComponent implements OnInit {
 
       console.log(this.model);
       console.log("valor Producto Id "+this.model);
-      if(!this.model.productoId) {
+      if(!this.model._id) {
         console.log("Nuevo");
         this.servicio.nuevoProducto(this.model).subscribe((res) => {
           console.log(res);
         });
-      } else if(this.model.productoId > 0)
+      } else if(this.model._id > 0)
       {
         console.log("Editado");
         this.servicio.actualizarProducto(this.model).subscribe((res) => {
@@ -57,7 +57,7 @@ export class FormularioComponent implements OnInit {
   }
 
   editarProducto(_producto: producto): void {
-    this.model.productoId =_producto.productoId;
+    this.model._id =_producto._id;
     this.model.nombre =_producto.nombre;
     this.model.descripcion =_producto.descripcion;
     this.model.precio =_producto.precio;
