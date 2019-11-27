@@ -1,6 +1,9 @@
-# FrontEndAngular
+  <p align="right"><h2> FrontEndAngular</h2> <img src="http://popvinyls.com/wp-content/uploads/2017/10/Pop-logo.png" width="150"/></p>                            
 
-Estas es una pequeña aplicacion (Tienda FunkoPop) que se conecta a una api para consumir los datos de una tabla (Producto), en esta se crea el CRUD y tiene filtros de busquedas con una Landing Page
+
+
+
+Estas es una pequeña aplicacion (Tienda FunkoPop) que se conecta a una api para consumir los datos de una tabla (Producto), en esta se crea el CRUD y tiene filtros de busquedas con una Landing Page 
 
 Este proyecto fue generado con Angular CLI versión 8.2.0.
 
