@@ -43,15 +43,23 @@ console.log('ENTRA EN LISTA');
     }, 5000 );
     }
 
+    async obtenerProductos(){
 
-  ngOnInit() {
-    console.log(this.tipo);
-    console.log("cantidad de Producto "  + this.productos.length);
+      var retorno = await this.servicio.obtenerProductos();
+      this.todosProductos = retorno;
+      this.productos =  this.todosProductos.slice(0, 4);
+      this.timerCard(this.todosProductos);
+    }
+
+
+  async ngOnInit() {
+
     if (this.tipo) {
 
      
       if(this.productos.length <= 0) {
-        
+       await this.obtenerProductos();
+        /*
         this.servicio.obtenerProductos().subscribe((resp: producto[]) => {
           console.log("cantidad de Producto "  +resp.length);
         this.todosProductos = resp;
@@ -61,6 +69,7 @@ console.log('ENTRA EN LISTA');
           }, (err: HttpErrorResponse) => {
             console.log(err);
           });
+          */
       }
 
     }
