@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ServicioproductoService } from 'src/app/services/servicioproducto.service';
 import { producto } from 'src/app/model/producto';
 import { HttpErrorResponse } from '@angular/common/http';
+import { stringify } from 'querystring';
 @Component({
   selector: 'app-formulario',
   templateUrl: './formulario.component.html',
@@ -13,47 +14,73 @@ export class FormularioComponent implements OnInit {
   model: producto = new producto();
   productos: producto[] = [];
   base64String: any; 
+  file:any;
+
   constructor(private servicio: ServicioproductoService) {
 
-    this.model.imagen='https://bass.knog.com.au/media/crystalcustomparts/original/pop-white-without-knog.jpg';
-    this.servicio.obtenerProductos().subscribe((resp: producto[]) => {
+    this.model.imagen='https://ppid.blorakab.go.id/packages/tugumuda/portal/img/default-square.jpg';
+   this.obtenerProductos();
+  }
 
-      this.productos = resp;
+  obtenerProductos(){
 
-      console.log('Productos'+ resp);
+    this.servicio.obtenerProductos().then((retorno)=>{
+      this.productos=retorno;
+      console.log(this.productos);
+    });
+ 
+   
+    /*
+    this.servicio.obtenerProductos().subscribe( (resp: producto[]) => {
+
+     return resp;
+
+      console.log('Productos'+ JSON.stringify(resp));
       }, (err: HttpErrorResponse) => {
         console.log(err);
       });
+      */
   }
-
   nuevoProducto(){
 
     if (this.model != null) {
 
-      console.log(this.model);
-      console.log("valor Producto Id "+this.model);
+      
       if(!this.model._id) {
-        console.log("Nuevo");
-        this.servicio.nuevoProducto(this.model).subscribe((res) => {
+       
+        const formData = new FormData();
+        
+        formData.append('nombre', this.model.nombre);
+        formData.append('descripcion', this.model.descripcion);
+        formData.append('precio', this.model.precio);
+        formData.append('categoria', this.model.categoria);
+        formData.append('imagen', this.file);
+
+        this.servicio.nuevoProducto(formData).then((res)=>{
           console.log(res);
+          this.model = new producto()
+          this.obtenerProductos();
         });
+
       } else if(this.model._id > 0)
       {
-        console.log("Editado");
         this.servicio.actualizarProducto(this.model).subscribe((res) => {
           console.log(res);
 
         });
-      }
-      this.model = null;
+      }      
     }
+
+ 
   }
 
   eliminarProducto(_producto: producto): void {
     this.servicio.eliminarProducto(_producto).subscribe((res) => {
-      console.log(res);
+
     });
-    console.log(_producto);
+  
+    this.obtenerProductos();
+
   }
 
   editarProducto(_producto: producto): void {
@@ -68,7 +95,7 @@ export class FormularioComponent implements OnInit {
 
   onFileChanged(event) {
 
-  let file = event.target.files[0];
+  this.file = event.target.files[0];
   let reader = new FileReader();
   reader.onload = ((theFile) => {
     return (e) => {
@@ -76,11 +103,10 @@ export class FormularioComponent implements OnInit {
       const binaryData = e.target.result;
       this.base64String = window.btoa(binaryData);
       this.model.imagen = 'data:image/jpeg;base64,' + this.base64String;
-      console.log(this.base64String);
 
     };
-  })(file);
-  reader.readAsBinaryString(file);
+  })(this.file);
+  reader.readAsBinaryString(this.file);
 }
 
 

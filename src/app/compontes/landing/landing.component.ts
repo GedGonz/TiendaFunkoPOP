@@ -19,6 +19,8 @@ export class LandingComponent implements OnInit {
 
    constructor(private servicio: ServicioproductoService) { 
 
+      this.obtenerProductos();
+    /*
     this.servicio.obtenerProductos().subscribe((resp: producto[]) => {
 
       this.todosProductos = resp;
@@ -28,6 +30,18 @@ export class LandingComponent implements OnInit {
       }, (err: HttpErrorResponse) => {
         console.log(err);
       });
+*/
+  }
+
+  async obtenerProductos(){
+
+    var retorno = await this.servicio.obtenerProductos();
+
+  
+    this.todosProductos = retorno;
+    this.productos =  retorno.slice(0, 4);
+
+      this.timerCard(this.todosProductos);
 
   }
 
