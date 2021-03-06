@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ServicioproductoService } from 'src/app/services/servicioproducto.service';
 import { producto } from 'src/app/model/producto';
 import { HttpErrorResponse } from '@angular/common/http';
-import { stringify } from 'querystring';
+
 @Component({
   selector: 'app-formulario',
   templateUrl: './formulario.component.html',
@@ -35,7 +35,7 @@ export class FormularioComponent implements OnInit {
   }
 
   nuevoProducto(){
-
+    console.log(this.model._id > 0);
     if (this.model != null) {
 
       if(!this.model._id) {
@@ -50,14 +50,16 @@ export class FormularioComponent implements OnInit {
 
         this.servicio.nuevoProducto(formData).subscribe((res) => {
           console.log(res);
+          this.model = new producto();
           this.obtenerProductos();
         });
 
-      } else if(this.model._id > 0)
+      } else if(this.model._id)
       {
+
         this.servicio.actualizarProducto(this.model).subscribe((res) => {
           console.log(res);
-
+          this.obtenerProductos();
         });
       }      
     } 
@@ -98,6 +100,10 @@ export class FormularioComponent implements OnInit {
   reader.readAsBinaryString(this.file);
 }
 
+clear():void {
+
+  this.model = new producto();
+}
 
   ngOnInit() {
   }
