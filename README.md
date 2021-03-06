@@ -20,4 +20,4 @@ Ejecutar `ng serve` para un servidor de desarrollo. Navegue a `http://localhost:
 
 Ejecute `ng build` para construir el proyecto. Los artefactos de compilación se almacenarán en el directorio `dist/`. Use el indicador `--prod` para una compilación de producción.
 
-Este proyecto trabaja en conjunto con el proyecto Backend (API) en Net Core 3.0 este se encuentra en: https://github.com/GedGonz/BackendNteCore
+Este proyecto trabaja en conjunto con el proyecto Backend (API) en Net Core 3.0 este se encuentra en: https://github.com/GedGonz/BackendNodeJS
