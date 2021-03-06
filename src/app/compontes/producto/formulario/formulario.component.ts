@@ -50,7 +50,7 @@ export class FormularioComponent implements OnInit {
 
         this.servicio.nuevoProducto(formData).subscribe((res) => {
           console.log(res);
-          this.model = new producto();
+          this.clear();
           this.obtenerProductos();
         });
 
@@ -67,6 +67,7 @@ export class FormularioComponent implements OnInit {
 
   eliminarProducto(_producto: producto): void {
     this.servicio.eliminarProducto(_producto).subscribe((res) => {
+      this.clear();
       this.obtenerProductos();
     });
   
