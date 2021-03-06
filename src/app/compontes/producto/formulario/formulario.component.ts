@@ -18,34 +18,26 @@ export class FormularioComponent implements OnInit {
 
   constructor(private servicio: ServicioproductoService) {
 
-    this.model.imagen='https://ppid.blorakab.go.id/packages/tugumuda/portal/img/default-square.jpg';
    this.obtenerProductos();
-  }
 
+  }
+    
   obtenerProductos(){
 
-    this.servicio.obtenerProductos().then((retorno)=>{
-      this.productos=retorno;
-      console.log(this.productos);
-    });
- 
+      this.servicio.obtenerProductos().subscribe( (resp: producto[]) => {
+
+        this.productos= resp;
    
-    /*
-    this.servicio.obtenerProductos().subscribe( (resp: producto[]) => {
-
-     return resp;
-
-      console.log('Productos'+ JSON.stringify(resp));
-      }, (err: HttpErrorResponse) => {
-        console.log(err);
-      });
-      */
+         console.log('Productos'+ JSON.stringify(resp));
+         }, (err: HttpErrorResponse) => {
+           console.log(err);
+         });
   }
+
   nuevoProducto(){
 
     if (this.model != null) {
 
-      
       if(!this.model._id) {
        
         const formData = new FormData();
@@ -56,9 +48,8 @@ export class FormularioComponent implements OnInit {
         formData.append('categoria', this.model.categoria);
         formData.append('imagen', this.file);
 
-        this.servicio.nuevoProducto(formData).then((res)=>{
+        this.servicio.nuevoProducto(formData).subscribe((res) => {
           console.log(res);
-          this.model = new producto()
           this.obtenerProductos();
         });
 
@@ -69,17 +60,15 @@ export class FormularioComponent implements OnInit {
 
         });
       }      
-    }
-
- 
+    } 
   }
 
   eliminarProducto(_producto: producto): void {
     this.servicio.eliminarProducto(_producto).subscribe((res) => {
-
+      this.obtenerProductos();
     });
   
-    this.obtenerProductos();
+
 
   }
 

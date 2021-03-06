@@ -43,12 +43,19 @@ console.log('ENTRA EN LISTA');
     }, 5000 );
     }
 
-    async obtenerProductos(){
+ obtenerProductos(){
 
-      var retorno = await this.servicio.obtenerProductos();
-      this.todosProductos = retorno;
+
+      this.servicio.obtenerProductos().subscribe((resp: producto[]) => {
+        console.log("cantidad de Producto "  +resp.length);
+      this.todosProductos = resp;
       this.productos =  this.todosProductos.slice(0, 4);
       this.timerCard(this.todosProductos);
+
+        }, (err: HttpErrorResponse) => {
+          console.log(err);
+        });
+
     }
 
 
@@ -56,20 +63,8 @@ console.log('ENTRA EN LISTA');
 
     if (this.tipo) {
 
-     
       if(this.productos.length <= 0) {
-       await this.obtenerProductos();
-        /*
-        this.servicio.obtenerProductos().subscribe((resp: producto[]) => {
-          console.log("cantidad de Producto "  +resp.length);
-        this.todosProductos = resp;
-        this.productos =  this.todosProductos.slice(0, 4);
-        this.timerCard(this.todosProductos);
-
-          }, (err: HttpErrorResponse) => {
-            console.log(err);
-          });
-          */
+       this.obtenerProductos();
       }
 
     }

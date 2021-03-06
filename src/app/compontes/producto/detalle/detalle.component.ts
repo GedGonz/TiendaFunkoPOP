@@ -11,19 +11,27 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class DetalleComponent implements OnInit {
 
-  productoSeleccionado: producto;
+  productoSeleccionado: producto = new producto();
 
   constructor(private route: ActivatedRoute, private servicio: ServicioproductoService) {
-    this.servicio.obtenerProducto(this.route.snapshot.params.id).subscribe((resp: producto) => {
-
-      this.productoSeleccionado = resp;
-
-    }, (err: HttpErrorResponse) => {
-      console.log(err);
-    });
+    this.optenerProductoSeleccionado();
    }
 
+optenerProductoSeleccionado()
+{
+
+    this.servicio.obtenerProducto(this.route.snapshot.params.id)
+    .subscribe((resp: producto) => {
+            console.log(resp);
+            this.productoSeleccionado = resp;
+      
+      }, (err: HttpErrorResponse) => {
+            console.log(err);
+      });
+}
+
   ngOnInit() {
+   
   }
 
 }

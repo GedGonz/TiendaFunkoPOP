@@ -10,19 +10,14 @@ export class ServicioproductoService {
 
   urlNetCore:string = 'https://localhost:5001/api/Producto';
   urlNodeJS: string = 'http://localhost:3000/api/Producto';
-  uri: string ='http://localhost:3000/api/producto'; //'https://marketfunkopop.herokuapp.com/api/Producto';
+  uri: string = this.urlNodeJS; ;
   constructor(private http: HttpClient) {
   }
 
-/*
+
   obtenerProductos(): Observable<producto[]> {
     const url = this.uri;
     return this.http.get<producto[]>(url);
-  }
-*/
-  async obtenerProductos(){
-    const url = this.uri;
-    return await this.http.get<producto[]>(url).toPromise();
   }
 
   obtenerProducto(_id: number): Observable<producto> {
@@ -34,7 +29,7 @@ export class ServicioproductoService {
   nuevoProducto(_producto: FormData){
 
     const url = this.uri;
-    return this.http.post(url, _producto).toPromise();
+    return this.http.post(url, _producto);
   }
 
   actualizarProducto(_producto: producto){

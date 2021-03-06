@@ -26,23 +26,19 @@ export class BuscarComponent implements OnInit {
   constructor(private servicio: ServicioproductoService) {
 
     this.obtenerProductos();
-    /*
-    this.servicio.obtenerProductos().subscribe((resp: producto[]) => {
 
-        this.todosProductos = resp;
-        this.productos.emit(this.todosProductos);
-
-      }, (err: HttpErrorResponse) => {
-        console.log(err);
-      });
-*/
   }
 
-  async obtenerProductos(){
+  obtenerProductos(){
 
-    var retorno = await this.servicio.obtenerProductos();
-    this.todosProductos = retorno;
-    this.productos.emit(this.todosProductos);
+    this.servicio.obtenerProductos().subscribe((resp: producto[]) => {
+
+      this.todosProductos = resp;
+      this.productos.emit(this.todosProductos);
+
+    }, (err: HttpErrorResponse) => {
+      console.log(err);
+    });
   }
 
   buscarProducto(valor) {
