@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {  HttpClient } from '@angular/common/http';
 import { producto } from '../model/producto';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class ServicioproductoService {
 
   urlNetCore:string = 'https://localhost:5001/api/Producto';
   urlNodeJS: string = 'https://funkopopapi.herokuapp.com/api/producto';
-  uri: string = this.urlNodeJS; ;
+  uri: string = environment.API_URL ;
   constructor(private http: HttpClient) {
   }
 
