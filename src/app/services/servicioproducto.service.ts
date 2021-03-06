@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 export class ServicioproductoService {
 
   urlNetCore:string = 'https://localhost:5001/api/Producto';
-  urlNodeJS: string = 'http://localhost:3000/api/Producto';
+  urlNodeJS: string = 'https://funkopopapi.herokuapp.com/api/producto';
   uri: string = this.urlNodeJS; ;
   constructor(private http: HttpClient) {
   }
